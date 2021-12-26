@@ -10,7 +10,11 @@ export default function TransactionList() {
       <h3>History</h3>
       <ul id="list" className="list">
         {transactions.map((el) => (
-          <Transacrion val={el.text} amount={el.amount} id={el.id}></Transacrion>
+          <Transacrion
+            val={el.text}
+            amount={el.amount}
+            id={el._id}
+          ></Transacrion>
         ))}
       </ul>
     </>

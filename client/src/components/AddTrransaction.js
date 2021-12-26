@@ -3,7 +3,7 @@ import { useContext } from "react";
 import GlobalContext from "../context/GlobalState";
 
 export default function AddTrransaction() {
-  const {addTransaction} = useContext(GlobalContext)
+  const { addTransaction, onClick } = useContext(GlobalContext);
 
   const [text, setText] = useState("");
   const [amount, setAmount] = useState(0);
@@ -13,15 +13,16 @@ export default function AddTrransaction() {
   const onChangeAmount = (e) => {
     setAmount(e.target.value);
   };
-  const onSubmits = (e)=>{
+  const onSubmits = (e) => {
     e.preventDefault();
     const newTransaction = {
-      id : Math.floor(Math.random() * 100000),
-      text:text,
-      amount:+amount
-    }
+      id: Math.floor(Math.random() * 100000),
+      text: text,
+      amount: +amount,
+    };
     addTransaction(newTransaction);
-  }
+    onClick();
+  };
   return (
     <>
       <h3>Add new transaction</h3>
